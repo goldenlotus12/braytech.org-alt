@@ -1,73 +1,72 @@
-# Braytech
-_The source code of braytech.org_
-
-© Bungie, Inc. All rights reserved. Destiny, the Destiny Logo, Bungie and the Bungie logo are among the trademarks of Bungie, Inc.
-
-## Contributing translations
-
-1.  Create a pull request
-
-2.  Find translations at [/public/static/locales](https://github.com/justrealmilk/braytech.org/tree/master/public/static/locales)
-
-3.  Add translations by removing the ##### symbols from keys and adding translated equivalents to values
-
-4.  Submit pull request
-
-## Contributing to maps data
-
-### Screenshots
-
-1.  Create a pull request
-
-2.  Find screenshots at [/screenshots/](https://github.com/justrealmilk/braytech.org/tree/master/screenshots/)
-
-3.  Submit your screenshots with matching file name patterns to these folders
-    *  Original PNG file
-    *  No HUD
-    *  1080p or greater, 16:9 aspect ratio
-    *  Frame subject in very center _unless it's super important to creating location context_
-    *  Feel free to provide multiple variants for consideration
-    *  No ammo, enemies, guardians in frame
-
-4.  Submit pull request
-
-### Nodes
-
-1.  Create a pull request
-
-2.  Find data at [/src/data/lowlines/maps/nodes/index.json](https://github.com/justrealmilk/braytech.org/tree/master/src/data/lowlines/maps/nodes/index.json)
-
-3.  Make your desired changes i.e. description value
-
-4.  Submit pull request
-
-## Running the dev build
-
-Before you can build this project, you must install and configure the following dependencies on your machine:
-
-1.  https://nodejs.org: We use Node to run a development web server and build the project.
-    Depending on your system, you can install Node either from source or as a pre-packaged bundle.
-
-After installing Node, you should be able to run the following command to install development tools.
-You will only need to run this command when dependencies change in [package.json](package.json).
-```
-npm install
-```
-2.  Configure enviromental variables by renaming `.env.example` to `.env`
-
-3.  Visit [Bungie.net](https://www.bungie.net/en/Application/Create) and create your own applicaiton credentials and use them to fill the blanks in `.env`
-```
-SET   OAuth Client Type   Confidential
-SET   Redirect URL        https://localhost:3000/settings
-SET   Scope               [x]
-                          [x]
-                          [x]
-                          [x]
-                          [ ]
-SET   Origin Header       https://localhost:3000
-```
-4.  To start the app running on the default port of 3000 run 
-```
-npm start
-```
-5.  Join the [Discord server](https://discordapp.com/invite/Y68xDsG)
+{
+  "name": "braytech.org",
+  "author": "Tom Chapman <askMeOnTwitter@justrealmilk> (https://thomchap.com.au)",
+  "bugs": {
+    "url": "https://github.com/justrealmilk/braytech.org/issues"
+  },
+  "version": "2.10.25",
+  "private": true,
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "dexie": "^2.0.4",
+    "entities": "^2.0.0",
+    "i18next": "^18.0.1",
+    "i18next-xhr-backend": "^3.2.0",
+    "leaflet": "^1.5.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.8.3",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-ga": "^2.7.0",
+    "react-i18next": "^11.0.0",
+    "react-leaflet": "^2.5.0",
+    "react-markdown": "^4.2.2",
+    "react-moment": "^0.9.6",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.2.0",
+    "react-test-renderer": "^16.11.0",
+    "redux": "^4.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "analyze": "node scripts/analyzeBundle.js",
+    "translations": "node scripts/extractTranslations2.js --stats",
+    "map-nodes": "node --experimental-modules scripts/prepareNodesData.mjs",
+    "checklists": "node --experimental-modules scripts/checklists/prepare.mjs"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      "last 2 Chrome versions",
+      "last 2 ChromeAndroid versions",
+      "last 2 FirefoxAndroid versions",
+      "last 2 Firefox versions",
+      "last 2 Safari versions",
+      "iOS >= 11",
+      "last 2 Edge versions",
+      "last 2 Opera versions",
+      "unreleased versions"
+    ],
+    "development": [
+      "last 1 Chrome version",
+      "last 1 Edge version",
+      "last 1 Safari version"
+    ]
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "find-in-files": "^0.5.0",
+    "fs-extra": "^8.1.0",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "webpack-bundle-analyzer": "^3.6.0"
+  }
+}
